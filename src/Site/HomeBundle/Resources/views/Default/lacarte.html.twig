@@ -1,0 +1,190 @@
+{% set idRubriqueBandeau = 7 %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Sittler{% endblock %}</title>
+        <!-- Fichier de définition css -->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="/css_static/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="/css_static/blueprint/print.css" type="text/css" media="print">
+		<link href='http://fonts.googleapis.com/css?family=Prosto+One' rel='stylesheet' type='text/css'>
+		<!–[if IE]><link rel="stylesheet" href="/css_static/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]–>
+        {% 
+        		stylesheets output='css/compressed.css' 
+        		'../app/public/css/global.css'
+        		'../app/public/css/blocks.css'
+        		'../app/public/css/effect.css'
+        		'@EyeswebcreaReferencementBundle/Resources/public/css/global.css'
+        		'@EyeswebcreaSliderBundle/Resources/public/css/Slider.css'
+        		
+        %}        		
+        	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />       	
+        {% endstylesheets %}
+        <!--	 <link rel="stylesheet" href="/css/lacarte.css" type="text/css" media="screen" /> -->
+        {% block stylesheets %}{% endblock %}
+        <!-- Fichiers de script javascript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+        
+        {% 
+        		javascripts output='js/compressed.js' 
+        		'../app/public/js/global.js'
+        		'@EyeswebcreaSliderBundle/Resources/public/js/slides.min.jquery.js'
+        %}        		
+        	<script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+   		{% block javascripts %}{% endblock %}
+   		{% include "GoogleBundle:Analytics:async.html.twig" %}
+    </head>
+    <body>
+  			    		{% if app.session.getFlashes() is not empty %}
+			    			<div id="notice" class="notice">
+				    			<ul>
+					    			{% for key, flash in app.session.getFlashes() %}
+										  <li>{{ flash }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+    <div id="page" class="container">
+    	<div id="header" class="span-24 last">
+    		<div id="header-content" class="span-24 last">
+				{% block header %}{% include "::header.html.twig" %}{% endblock %}
+    		</div>
+    	</div>
+    	<div id="body" class="span-24 last">
+    		<div id="body-content" class="span-24 last">
+    			<div class="span-24 last" id="conteneur-bandeau">
+    				{% block bandeau %} 
+						{% include "::bandeau.html.twig" with {"idRubriqueBandeau" : 4, "hauteurBandeau" : 250} %}
+	    			{% endblock %}
+    			</div>
+    			
+	    		<div class="span-24 last" id="conteneur-bas">
+		    		<div id="conteneur-bas-partie-milieu"  class="span-24 last" style="">
+		 				<div class="span-24 last prepend-top append-bottom">
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="la-carte">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 6 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 6}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="la-carte-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="pizzas-creme">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 7 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 7}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="coiffure-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-salades">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 8 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 8}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-salades-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-boissons">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 9 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 9}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-boissons-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-bieres-vins">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 10 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 10}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-bieres-vins-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-dessertsetglaces">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 11 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 11}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-dessertsetglaces-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-paninis">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 12 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 12}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-paninis-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-sandwiches-froids">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 13 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 13}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-sandwiches-froids-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="block span-22 prepend-1 append-1 list coiffure-list" id="nos-pains-chauds">
+								{% for rubrique in boucleRubriques({ "idRubrique" : 14 }) %}
+									<h2 class="title">{{ rubrique.getTitre() }}</h2>
+									<div class="content">{{ rubrique.getTexte() | raw }}</div>
+								{% endfor %}
+								{% for article in boucleArticles({"idRubrique" : 14}) %}
+									<div class="block {{ loop.index % 2 == 0 ? 'paire' : 'impaire' }} item coiffure-item" id="nos-pains-chauds-item-{{ loop.index }}">
+										<h2 class="block-title">{{ article.getTitre() }}</h2>
+										<div class="block-content">{{ article.getTexte() | raw }}</div>
+									</div>
+								{% endfor %}
+							</div>
+		    		</div>
+		    		<div id="conteneur-bas-partie-basse" class="span-24 last"></div>
+	    			
+	    		</div>	
+    			
+    		</div>
+    	</div>
+    </div>
+       	<div id="footer">
+    		<div id="footer-content" class="container"> 
+    			{% block footer %}{% include "::footer.html.twig" %}{% endblock %}
+    		</div>
+    	</div>
+    
+   </body>
+</html>
+
+

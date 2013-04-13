@@ -1,0 +1,102 @@
+{% set idRubriqueBandeau = 7 %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Sittler{% endblock %}</title>
+        <!-- Fichier de définition css -->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="/css_static/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="/css_static/blueprint/print.css" type="text/css" media="print">
+		<link href='http://fonts.googleapis.com/css?family=Prosto+One' rel='stylesheet' type='text/css'>
+		<!–[if IE]><link rel="stylesheet" href="/css_static/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]–>
+        {% 
+        		stylesheets output='css/compressed.css' 
+        		'../app/public/css/global.css'
+        		'../app/public/css/blocks.css'
+        		'../app/public/css/effect.css'
+        		'@EyeswebcreaReferencementBundle/Resources/public/css/global.css'
+        		'@EyeswebcreaSliderBundle/Resources/public/css/Slider.css'
+        		'@SiteHomeBundle/Resources/public/css/contact.css'
+        %}        		
+        	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+        	
+  <!--      	<link rel="stylesheet" href="/css/contact.css" type="text/css" media="all" title="no title" charset="utf-8"/>   -->
+        {% endstylesheets %}
+        {% block stylesheets %}{% endblock %}
+        <!-- Fichiers de script javascript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+        
+        {% 
+        		javascripts output='js/compressed.js' 
+        		'../app/public/js/global.js'
+        		'@EyeswebcreaSliderBundle/Resources/public/js/slides.min.jquery.js'
+        %}        		
+        	<script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+   		{% block javascripts %}{% endblock %}
+   		{% include "GoogleBundle:Analytics:async.html.twig" %}
+    </head>
+    <body>
+  			    		{% if app.session.getFlashes() is not empty %}
+			    			<div id="notice" class="notice">
+				    			<ul>
+					    			{% for key, flash in app.session.getFlashes() %}
+										  <li>{{ flash }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+    <div id="page" class="container">
+    	<div id="header" class="span-24 last">
+    		<div id="header-content" class="span-24 last">
+				{% block header %}{% include "::header.html.twig" %}{% endblock %}
+    		</div>
+    	</div>      
+    	<div id="body" class="span-24 last">
+    		<div id="body-content" class="span-24 last">
+    			<div id="formulaire-contact" class="span-10 prepend-2 prepend-top">
+					<fieldset class="formulaire">
+						<legend> Nous contacter </legend>
+			
+						<form action="#" method="post">
+							{% render "IHQSContactBundle:Contact:form" %}
+						</form>
+					</fieldset>
+					<div id="moyens-paiements" class="block">
+						<h2 class="block-title">Moyens de Paiements</h2>
+						<div class="block-content text-centered">
+							<img src="/images/mdp.png"/>
+						</div>
+					</div>
+				</div>
+	
+				<div id="plan-acces" class="span-8 prepend-1 prepend-top">
+					<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=77340+1+Rue+Georges+Ohnet,+Pontault-Combault&amp;aq=0&amp;oq=77340+1+rue+georges+ohnet&amp;sll=48.61899,2.975666&amp;sspn=1.387194,2.469177&amp;ie=UTF8&amp;hq=&amp;hnear=1+Rue+Georges+Ohnet,+77340+Pontault-Combault,+Seine-et-Marne,+%C3%8Ele-de-France&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.fr/maps?f=q&amp;source=embed&amp;hl=fr&amp;geocode=&amp;q=77340+1+Rue+Georges+Ohnet,+Pontault-Combault&amp;aq=0&amp;oq=77340+1+rue+georges+ohnet&amp;sll=48.61899,2.975666&amp;sspn=1.387194,2.469177&amp;ie=UTF8&amp;hq=&amp;hnear=1+Rue+Georges+Ohnet,+77340+Pontault-Combault,+Seine-et-Marne,+%C3%8Ele-de-France&amp;t=m&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">Agrandir le plan</a></small>
+				</div>
+	
+				<div class="span-8 prepend-1 prepend-top last append-bottom" id="contact">
+					{% for article in boucleArticles({ "idArticle" : 3 }) %}
+						<h2 class="block-title">{{ article.titre }}</h2>
+						<div class="block-content">
+							{{ article.texte | raw }}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+    </div>
+       <div id="footer">
+    		<div id="footer-content" class="container"> 
+    			{% block footer %}{% include "::footer.html.twig" %}{% endblock %}
+    		</div>
+    	</div>
+    
+    </body>
+</html>
+
+
+	
+	

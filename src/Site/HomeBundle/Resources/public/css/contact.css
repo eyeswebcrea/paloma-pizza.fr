@@ -1,0 +1,12 @@
+div#contact h2 {
+	border-bottom: solid red 2px;
+	color: black;
+	font-weight: bold;
+}
+
+div#conteneur-bandeau {
+	display: none;
+}	
+div#contact div.block-content p {
+	color: black;
+}

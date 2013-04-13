@@ -1,0 +1,212 @@
+{% extends "::base.html.twig" %}
+
+
+{% block stylesheets %}
+	    {% 
+        		stylesheets output='css/mercerie.css' 
+        		'@SiteHomeBundle/Resources/public/css/index.css'
+        %}        		
+        	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+        {% endstylesheets %}
+{% endblock %}
+
+{% block index %}
+
+	
+		    				<div class="span-24">
+		    					<div class="span-4 promotions-list">
+		    						<a href="la-carte">
+		    							<div class="carte-item span-4 block block-3-line" id="carte-item-1">
+		    								<div class="block-content">
+		    									<img src="/images/pointeurcarte1page1.jpg" alt="La carte">
+		    								</div>
+		    								<h2 class="block-title">La carte</h2>
+		    							</div>
+		    						</a>
+		    						<div class="promotions-item-impaire span-4 block block-4-line impaire" id="promotion-item-1">
+		    							<div class="block-content">
+			    							<p class="center">2</p>
+			    							<p class="center">Mégas</p>
+			    							<p class="center">Achetées</p>
+			    							<p class="center">=</p>
+			    							<p class="center">33€</p>
+		    							</div>
+		    						</div>
+		    						<div class="promotions-item-paire span-4 block block-4-line paire" id="promotion-item-2">
+		    							<div class="block-content">
+			    							<p class="center">3</p>
+			    							<p class="center">Solos</p>
+			    							<p class="center">Achetées</p>
+			    							<p class="center">=</p>
+			    							<p class="center">20€</p>
+		    							</div>
+		    						</div>
+		    						<div class="promotions-item-impaire span-4 block block-5-line impaire" id="promotion-item-3">
+		    							<div class="block-content">
+			    							<p class="center">2</p>
+			    							<p class="center">Séniors</p>
+			    							<p class="center">Achetées</p>
+			    							<p class="center">=</p>
+			    							<p class="center">
+			    								la 3
+			    								<exp>éme</exp>
+			    							</p>
+			    							<p class="center">
+			    							<strong>OFFERTE</strong>
+			    							</p>
+		    							</div>
+		    						</div>
+		    					</div>
+		    					<div class="last">
+		    						<div class="menu-list last">
+		    							<div class="block menu-item span-5 block block-3-line showgrid impaire" id="menu-item-1">
+		    								<h2 class="block-title">MENU 1 PERS</h2>
+		    								<div class="block-content">
+		    									<ul>
+		    										<li>1 Pizza solo au choix ou 1 salade au choix</li>
+		    										<li>+ 1 Boisson 33cl</li>
+		    										<li>+ 1 dessert sauf glace</li>
+		    									</ul>
+		    									<strong>8€00</strong>
+		    								</div>
+		    							</div>
+		    							<div class="block menu-item span-5 block block-3-line showgrid paire" id="menu-item-2">
+		    								<h2 class="block-title">MENU 2 PERS</h2>
+		    								<div class="block-content">
+		    									<ul>
+		    										<li>1 Pizza senior au choix</li>
+		    										<li>+ 2 boissons 33 cl</li>
+		    										<li>+2 dessets du jour sauf glaces</li>
+		    									</ul>
+		    									<strong>16€00</strong>
+		    								</div>
+		    							</div>
+		    							<div class="block menu-item span-5 block block-3-line showgrid impaire last" id="menu-item-3">
+		    								<h2 class="block-title">MENU 4 PERS</h2>
+		    								<div class="block-content">
+		    									<ul>
+		    										<li>2 Pizzas Seniors au choix</li>
+		    										<li>+ 1 boisson 1,5L</li>
+		    										<li>+1 pot de glace 500ml</li>
+		    									</ul>
+		    									<strong>29€00</strong>
+		    								</div>
+		    							</div>
+		    						</div>
+		    						<div class="span-20 block block-4-line last" id="sandwichs-and-frites">
+		    							<div class="span-16 showgrid sandwitches-list block block-4-line">
+		    								<h2 class="titre text-center">Nos Formules</h2>
+		    								<a href="la-carte#nos-sandwiches-froids">
+		    									<div class="transition-effect transition-effect-out sandwitches-item span-4 block " id="sandwitches-item-1">
+		    										<h2 class="span-4 last block-title">NOS FORMULES SANDWICHES</h2>
+		    										<div class="block-content">
+		    											<img src="/images/painschauds.jpg" alt="Nos Formules Sandwiches"/>
+		    										</div>
+		    									</div>
+		    								</a>
+		    								<a href="la-carte#nos-paninis">
+		    									<div class="transition-effect transition-effect-out sandwitches-item span-4 block" id="sandwitches-item-2">
+		    										<h2 class="span-4 last block-title">NOS PANINIS</h2>
+		    										<div class="block-content">
+		    											<img src="/images/paninis.jpg" alt="Nos Paninis"/>
+		    										</div>
+		    									</div>
+		    								</a>
+		    								<a href="la-carte#nos-sandwiches-froids">
+		    									<div class="transition-effect transition-effect-out sandwitches-item span-4 block" id="sandwitches-item-3">
+		    										<h2 class="span-4 last block-title">NOS SANDWICHES FROIDS</h2>
+		    										<div class="block-content">
+		    											<img src="/images/sandwichsfroids.jpg" alt="Nos Sandwiches froids"/>
+		    										</div>
+		    									</div>	
+		    								</a>
+		    								<a href="la-carte#nos-pains-chauds">
+		    									<div class="transition-effect transition-effect-out sandwitches-item span-4 last block" id="sandwitches-item-4">
+		    										<h2 class="span-4 last block-title">Nos Pains Chauds "Préparation Maison"</h2>
+		    										<div class="block-content">
+		    											<img src="/images/painschauds.jpg" alt="Nos Pains Chauds Préparation Maison"/>
+		    										</div>
+		    									</div>
+		    								</a>
+		    							</div>
+		    							<div class="span-4 last showgrid frites-list">
+		    								<h2 class="titre text-center">Frites</h2>
+		    								<div class="frites-item span-4 block block-3-line showgrid" id="frites-item">
+		    									<h2 class="block-title">Grandes</h2>
+		    									<div class="block-content">
+		    										<img src="/images/fritespage1.jpg" alt="Grandes"/>
+		    									</div>
+		    									<span class="prix">
+		    										<p class="center">2€50</p>
+		    									</span>
+		    								</div>
+		    							</div>
+		    						</div>
+		    						<div class="span-20 block block-4-line last" id="conteneur-salades-et-sur-place">
+		    							<div class="span-8 prepend-1 saladesdivers-list">
+		    								<h2 class="titre text-center">Salades Boissons Dessert</h2>
+		    								<a href="la-carte#nos-boissons">
+		    									<div class="saladesdivers-item transition-effect span-4 last block block-3-line showgrid" id="saladesdivers-item-1">
+		    										<h2 class="block-title transition-effect transition-effect-zoomtitre">Nos Boissons sans Alcool</h2>
+		    										<div class="block-content">
+		    											<img src="/images/boissons.jpg" alt="Boissons sans Alcool"/>
+		    										</div>
+		    									</div>
+		    								</a>
+		    								<a href="la-carte#nos-dessertsetglaces">
+		    									<div class="saladesdivers-item transition-effect span-4  last block block-3-line showgrid" id="saladesdivers-item-2">
+		    										<h2 class="block-title transition-effect transition-effect-zoomtitre">Nos Desserts et Glaces</h2>
+		    										<div class="block-content">
+		    											<img src="/images/dessertglace.jpg" alt="Desserts et Glaces"/>
+		    										</div>		    										
+		    									</div>
+		    								</a>
+		    								<a href="la-carte#nos-salades">
+		    									<div class="saladesdivers-item transition-effect span-4 last block block-3-line showgrid" id="saladesdivers-item-3">
+		    										<h2 class="block-title transition-effect transition-effect-zoomtitre">Nos Salades (à emporter)</h2>
+		    										<div class="block-content">
+		    											<img src="/images/salades.jpg" alt="Salades (à emporter)"/>
+		    										</div>
+		    									</div>
+		    								</a>
+		    								<a href="la-carte#nos-bieres-vins">
+		    									<div class="saladesdivers-item transition-effect span-4 last block block-3-line showgrid" id="saladesdivers-item-4">
+		    										<h2 class="block-title transition-effect transition-effect-zoomtitre">Nos Bières et Vins</h2>
+		    										<div class="block-content">
+		    											<img src="/images/bierevin.jpg" alt="Nos Bières Vins et Apéritifs">
+		    										</div>
+		    									</div>
+		    								</a>
+		    							</div>
+		    							<div class="span-10 prepend-1 surplace-list last">
+		    								<h2 class="titre text-center">Déjeuner</h2>
+		    								<a href="la-carte">
+		    									<div class="surplace-item span-5 block block-6-line" id="surplace-item-1">
+		    										<h2 class="block-title">Nos Pizzas base tomate</h2>
+		    										<div class="block-content">
+		    											<img src="/images/pizza-tomate.jpg" alt="pizzas-tomates">
+		    										</div>
+		    									</div>	
+		    								</a>
+		    								<a href="la-carte#pizzas-creme">
+		    									<div class="surplace-item span-5 block last block-6-line" id="surplace-item-2">
+		    										<h2 class="block-title">Nos Pizzas base creme</h2>
+		    										<div class="block-content">
+		    											<img src="/images/pizza-creme.jpg" alt="pizzas-creme">
+		    										</div>
+		    									</div>	
+		    								</a>
+		    							</div>
+		    						</div>
+		    						<div class="span-10">
+		    							
+		    							<div class="span-10">
+											
+		    							</div>
+		    						</div>
+		    					</div>
+		    				
+		    			
+		    				</div>
+{% endblock %}
+

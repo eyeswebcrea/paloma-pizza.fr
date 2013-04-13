@@ -1,0 +1,82 @@
+/*  Les articles de la carte (carte.css)   */
+div.list h2.title {
+	color: black;
+	font-weight: bold;
+}
+div.list div.content {
+	padding: 5px;
+	color: black;
+	font-family: Helvetica;
+}
+div.list div.block.item {
+	position: relative;
+	padding: 5px;
+}
+div.list div.item div.block-content {
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: black;
+	font-family: Helvetica;
+}
+div.list div.item div.block-content ul {
+	display: block;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	overflow: hidden;
+}
+div.list div.item div.block-content p {
+	font-size: 15px;
+	
+}
+
+div.list div.item.impaire {
+	background-color: #f7e7b7;
+}
+
+div.list div.item.paire {
+	background-color: #d2f7d9;
+}
+
+div.list div.item h2.block-title {
+	font-family: 'Aladin', sans-serif;
+	color: black;
+}
+
+
+div.list div.item.paire div.block-content ul li {
+	list-style: none;
+	float: left;
+	color: black;
+}
+
+div.list div.item.impaire div.block-content ul li {
+	list-style: none;
+	float: left;
+	color: black;
+}
+
+div.list div.item.paire div.block-content ul li strong {
+	display: block;
+	padding: 5px;
+	background: @noir;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 15px;
+}
+
+div.list div.item.impaire div.block-content ul li strong {
+	display: block;
+	padding: 5px;
+	background: @noir;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 15px;
+}
